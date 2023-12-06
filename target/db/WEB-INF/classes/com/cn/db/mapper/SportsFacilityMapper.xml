@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.db.mapper.SportsFacilityMapper">
+    <select id="getAllFacilities" resultType="com.cn.db.entity.SportsFacility">
+        SELECT * FROM sports_facilities;
+    </select>
+
+    <delete id="deleteFacility" parameterType="int">
+        DELETE FROM sports_facilities WHERE facilityId = #{facilityId};
+    </delete>
+    <update id="updateFacility" parameterType="com.cn.db.entity.SportsFacility">
+        UPDATE sports_facilities
+        SET facilityName = #{facilityName},
+            facilityPhoto = #{facilityPhoto},
+            facilityDescription = #{facilityDescription},
+            usageStatus = #{usageStatus},
+            usageFee = #{usageFee}
+        WHERE facilityId = #{facilityId};
+    </update>
+    <insert id="addFacility" parameterType="com.cn.db.entity.SportsFacility">
+        INSERT INTO sports_facilities (facilityId,facilityName, facilityPhoto, facilityDescription, usageStatus, usageFee)
+        VALUES (#{facilityId},#{facilityName}, #{facilityPhoto}, #{facilityDescription}, #{usageStatus}, #{usageFee});
+    </insert>
+</mapper>

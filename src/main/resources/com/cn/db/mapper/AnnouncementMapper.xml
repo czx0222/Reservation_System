@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.cn.db.mapper.AnnouncementMapper">
+
+    <select id="getAllAnnouncements" resultType="com.cn.db.entity.Announcement">
+        SELECT * FROM announcements ;
+    </select>
+
+    <insert id="addAnnouncement" parameterType="com.cn.db.entity.Announcement">
+        INSERT INTO announcements (content, publish_time) VALUES (#{content}, #{publish_time});
+    </insert>
+
+    <delete id="deleteAnnouncement">
+        DELETE FROM announcements WHERE announcement_id = #{announcement_id};
+    </delete>
+    <update id="updateAnnouncement" parameterType="Announcement">
+        UPDATE announcements
+        SET content = #{content}
+        WHERE announcement_id = #{announcement_id}
+    </update>
+</mapper>

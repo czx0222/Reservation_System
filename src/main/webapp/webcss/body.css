@@ -1,0 +1,21 @@
+
+.backarea{
+    background-image: url("../images/back.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    min-height: calc(100vh - 70px);
+    margin-top: 56px;
+    margin-bottom: 56px;
+}
+.nav-item{
+    margin-left: 10px;
+}
+.nav-link {
+
+    color: white;
+    font-weight: bold;
+}
+input{
+    border: 1px solid rebeccapurple;
+}
