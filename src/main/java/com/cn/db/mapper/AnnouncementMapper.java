@@ -9,4 +9,5 @@ public interface AnnouncementMapper {
     void addAnnouncement(Announcement announcement);
     void deleteAnnouncement(int announcement_id);
     int updateAnnouncement(Announcement announcement);
+    List<Announcement> getRecentAnnouncements(int count);
 }

@@ -33,4 +33,9 @@ public class AnnouncementServiceImpl implements AnnouncementService {
         int rowsAffected = announcementMapper.updateAnnouncement(announcement);
         return rowsAffected > 0;
     }
+    @Override
+    public List<Announcement> getRecentAnnouncements(int count) {
+        return announcementMapper.getRecentAnnouncements(count);
+    }
+
 }

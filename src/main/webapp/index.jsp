@@ -12,10 +12,32 @@
         var footerHeight = document.querySelector('footer').offsetHeight;
         document.getElementById('footer-placeholder').style.height = footerHeight + 'px';
     </script>
+    <style>
+        .backarea{
+            background-image:url("images/back2.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            min-height: calc(100vh - 70px);
+            margin-top: 90px;
+            margin-bottom: 56px;
+        }
+        .nav-item{
+            margin-left: 20px;
+            font-size: 24px;
+        }
+        .nav-link {
+            color: white;
+            font-weight: bold;
+        }
+        .custom-navbar {
+            height: 90px;
+        }
+    </style>
 </head>
 <body >
 
-<nav class="navbar navbar-expand-lg bg-dark text-white fixed-top">
+<nav class="navbar navbar-expand-lg bg-dark text-white fixed-top custom-navbar">
     <ul class="navbar-nav mx-auto " >
         <li class="nav-item active">
             <a class="nav-link" href="#">首页</a>
@@ -33,18 +55,47 @@
             <a class="nav-link" href="#">联系我们</a>
         </li>
         <li class="nav-item">
-            <a href="login" class="btn btn-primary">登录</a>
+            <a href="/db/User/login" class="btn btn-primary">登录</a>
         </li>
         <li class="nav-item">
-            <a class="btn btn-primary" href="register">注册</a>
+            <a class="btn btn-primary" href="front/register.jsp">注册</a>
         </li>
     </ul>
 </nav>
 
-<div class="backarea" >
-    <section class="container py-5 ">
-        <h2 class="text-center mb-4">欢迎来到网站首页</h2>
-        <p>这里是网站的主要内容区域，你可以在这里展示网站的特色信息、产品、服务等。</p>
+<div class="backarea">
+    <section class="container py-5">
+        <h2 class="text-center mb-4" style="font-weight: bold;font-size: 70px;">欢迎来到体育馆</h2>
+        <div class="box" style="margin-top: 130px">
+            <div id="carouselExample" class="carousel slide" data-ride="2000">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="images/zuqiu.jpg" class="d-block w-100" alt="Slide 1" style="width: 500px; height: 700px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/lanqiu.jpg" class="d-block w-100" alt="Slide 2" style="width: 500px; height: 700px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/wangqiu.jpg" class="d-block w-100" alt="Slide 3" style="width: 500px; height: 700px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/pingpang.jpg" class="d-block w-100" alt="Slide 4" style="width: 500px; height: 700px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/yumaoqiu.jpg" class="d-block w-100" alt="Slide 5" style="width: 500px; height: 700px;">
+                    </div>
+
+                </div>
+                <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
     </section>
 </div>
 

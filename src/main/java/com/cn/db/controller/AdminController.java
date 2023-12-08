@@ -46,11 +46,9 @@ public class AdminController {
     public String dashboard(HttpSession session) {
         Admin admin = (Admin) session.getAttribute("admin");
         if (admin != null) {
-            // Logic for the admin dashboard
             return "back/AdminDashboard";
         } else {
             return "redirect:/admin/login";
         }
     }
 }
-

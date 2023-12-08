@@ -21,4 +21,7 @@
         SET content = #{content}
         WHERE announcement_id = #{announcement_id}
     </update>
+    <select id="getRecentAnnouncements" resultType="com.cn.db.entity.Announcement">
+        SELECT * FROM announcements ORDER BY publish_time DESC LIMIT #{count}
+    </select>
 </mapper>

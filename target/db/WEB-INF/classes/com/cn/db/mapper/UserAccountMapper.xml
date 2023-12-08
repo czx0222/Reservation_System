@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.db.mapper.UserAccountMapper">
+    <select id="getUserByLoginName" resultType="com.cn.db.entity.User">
+        SELECT * FROM user_accounts WHERE login_name = #{login_name}
+    </select>
+    <select id="getUserInfoByLoginName" resultType="com.cn.db.entity.User">
+        SELECT user_id, login_name, full_name, birthday, phone, email FROM user_accounts WHERE login_name = #{login_name}
+    </select>
+    <select id="getUserById" resultType="com.cn.db.entity.User">
+        SELECT * FROM user_accounts WHERE user_id = #{user_id}
+    </select>
+    <update id="updateUserInfo" parameterType="com.cn.db.entity.User">
+        UPDATE user_accounts
+        SET full_name = #{full_name},
+            birthday = #{birthday},
+            phone = #{phone},
+            email = #{email}
+        WHERE user_id = #{user_id}
+    </update>
+    <update id="updateUserPassword">
+        UPDATE user_accounts
+        SET password = #{password}
+        WHERE user_id = #{user_id}
+    </update>
+</mapper>

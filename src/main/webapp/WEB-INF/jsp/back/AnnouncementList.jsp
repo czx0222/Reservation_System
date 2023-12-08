@@ -2,6 +2,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
 <html>
 <head>
   <title>体育场地预约管理系统</title>
@@ -88,7 +90,7 @@
   <div class="header bg-dark text-light">
     <div class="header-content">
       <h1>体育场地预约管理系统</h1>
-      <a href="/admin/login" class="btn btn-danger btn-sm">退出</a>
+      <a href="/db/admin/login" class="btn btn-danger btn-sm">退出</a>
     </div>
   </div>
   <div class="row">
@@ -142,7 +144,10 @@
           <tr>
             <td>${announcement.announcement_id}</td>
             <td>${announcement.content}</td>
-            <td>${announcement.publish_time}</td>
+<%--            <td>${announcement.publish_time}</td>--%>
+            <fmt:formatDate value="${announcement.publish_time}" pattern="yyyy-MM-dd" var="formattedDate" />
+
+            <td>${formattedDate}</td>
             <td>
               <a class="btn btn-primary btn-sm" data-toggle="modal" data-target="#editAnnouncementModal${announcement.announcement_id}">
                 编辑

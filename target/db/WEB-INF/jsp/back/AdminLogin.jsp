@@ -4,7 +4,7 @@
     <title>体育场地预约管理系统</title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
     <style>
-        .loginarea{
+        .loginarea {
             background-image: url("../images/back.jpg");
             background-size: cover;
             background-repeat: no-repeat;
@@ -14,30 +14,34 @@
             justify-content: center;
             align-items: center;
         }
-        .box{
+        .box {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 20px;
-            width: 50%;
-            height: 50%;
+            width: 400px; /* 固定宽度 */
+            height: 300px; /* 固定高度 */
         }
         .btn-login {
             display: flex;
             justify-content: center;
+            margin-top: 20px; /* 增加一些顶部间距 */
         }
-        .box1{
-            background-color: rgb(255,255,255,0.6);
+        .box1 {
+            background-color: rgb(255, 255, 255, 0.6);
             border-radius: 20px;
+            padding: 20px; /* 增加内边距 */
+            font-size: 30px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body class="loginarea">
 <div class="container ">
     <div class="row box">
-        <div class="col-md-6 offset-md-3 box1">
-            <h2 class="text-center">管理员登录</h2>
+        <div class="col-md-12 box1">
+            <h2 class="text-center" style="font-size: 50px">管理员登录</h2>
             <form action="/db/admin/login" method="post" >
                 <div class="mb-3">
                     <label for="username" class="form-label">用户名:</label>
@@ -55,8 +59,6 @@
         </div>
     </div>
 </div>
-<link rel="stylesheet" href="../bootstrap/js/bootstrap.min.js">
-
-
+<script src="../bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

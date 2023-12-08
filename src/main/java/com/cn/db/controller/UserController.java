@@ -32,4 +32,5 @@ public class UserController {
         userService.deleteUserById(userId);
         return "redirect:/user/list";
     }
+
 }

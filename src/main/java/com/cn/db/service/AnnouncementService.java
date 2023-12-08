@@ -9,4 +9,5 @@ public interface AnnouncementService {
     void addAnnouncement(Announcement announcement);
     void deleteAnnouncement(int announcement_id);
     boolean updateAnnouncement(Announcement announcement);
+    List<Announcement> getRecentAnnouncements(int count);
 }

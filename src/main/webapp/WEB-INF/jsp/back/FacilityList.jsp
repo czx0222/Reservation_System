@@ -87,7 +87,7 @@
     <div class="header bg-dark text-light">
         <div class="header-content">
             <h1>体育场地预约管理系统</h1>
-            <a href="/admin/login" class="btn btn-danger btn-sm">退出</a>
+            <a href="/db/admin/login" class="btn btn-danger btn-sm">退出</a>
         </div>
     </div>
     <div class="row">
@@ -113,7 +113,6 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <!-- 添加场地的表单 -->
                             <form id="addFacilityForm" action="/db/facilities/add" method="post">
                                 <div class="form-group">
                                     <label for="addFacilityId">场地编号</label>
@@ -129,21 +128,21 @@
                                     <img id="addPreviewImage" style="max-width: 100px; max-height: 100px;">
                                 </div>
                                 <div class="form-group">
-                                    <label for="editFacilityDescription${facility.facilityId}">场地介绍</label>
-                                    <textarea class="form-control" id="editFacilityDescription${facility.facilityId}" name="facilityDescription" rows="3" required>${facility.facilityDescription}</textarea>
+                                    <label for="addFacilityDescription">场地介绍</label>
+                                    <textarea class="form-control" id="addFacilityDescription" name="facilityDescription" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="editUsageStatus${facility.facilityId}">场地状态</label>
-                                    <select class="form-control" id="editUsageStatus${facility.facilityId}" name="usageStatus" required>
-                                        <option value="Available" ${facility.usageStatus eq 'Available' ? 'selected' : ''}>可以</option>
-                                        <option value="Occupied" ${facility.usageStatus eq 'Occupied' ? 'selected' : ''}>不可以</option>
+                                    <label for="addUsageStatus">场地状态</label>
+                                    <select class="form-control" id="addUsageStatus" name="usageStatus" required>
+                                        <option value="Available">可以</option>
+                                        <option value="Occupied">不可以</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="editUsageFee${facility.facilityId}">场地费用</label>
-                                    <input type="text" class="form-control" id="editUsageFee${facility.facilityId}" name="usageFee" value="${facility.usageFee}" required>
+                                    <label for="addUsageFee">场地费用</label>
+                                    <input type="text" class="form-control" id="addUsageFee" name="usageFee" required>
                                 </div>
-
+                                <button type="button" class="btn btn-info" id="uploadLocalImagePath">上传图片</button>
                                 <button type="submit" class="btn btn-primary">确认添加</button>
                             </form>
                         </div>
@@ -152,7 +151,7 @@
             </div>
 
             <h2 style="font-weight: bold">场地列表</h2>
-            <table  border="1" class="center-content">
+            <table border="1" class="center-content">
                 <thead>
                 <tr class="bold-text bg-dark text-light">
                     <th>场地编号</th>
@@ -191,7 +190,7 @@
                                     <div class="modal-body">
                                         <!-- 编辑表单，包含场地的详细信息 -->
                                         <form id="editFacilityForm" action="<c:url value='/facilities/edit/${facility.facilityId}'/>" method="post">
-                                        <div class="form-group">
+                                            <div class="form-group">
                                                 <label for="editFacilityName">场地名称</label>
                                                 <input type="text" class="form-control" id="editFacilityName" name="facilityName" value="${facility.facilityName}" required>
                                             </div>
@@ -201,20 +200,21 @@
                                                 <img id="previewImage" style="max-width: 100px; max-height: 100px;">
                                             </div>
                                             <div class="form-group">
-                                                <label for="editFacilityDescription${facility.facilityId}">场地介绍</label>
-                                                <textarea class="form-control" id="editFacilityDescription${facility.facilityId}" name="facilityDescription" rows="3" required>${facility.facilityDescription}</textarea>
+                                                <label for="editFacilityDescription">场地介绍</label>
+                                                <textarea class="form-control" id="editFacilityDescription" name="facilityDescription" rows="3" required>${facility.facilityDescription}</textarea>
                                             </div>
                                             <div class="form-group">
-                                                <label for="editUsageStatus${facility.facilityId}">场地状态</label>
-                                                <select class="form-control" id="editUsageStatus${facility.facilityId}" name="usageStatus" required>
+                                                <label for="editUsageStatus">场地状态</label>
+                                                <select class="form-control" id="editUsageStatus" name="usageStatus" required>
                                                     <option value="Available" ${facility.usageStatus eq 'Available' ? 'selected' : ''}>可以</option>
                                                     <option value="Occupied" ${facility.usageStatus eq 'Occupied' ? 'selected' : ''}>不可以</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="editUsageFee${facility.facilityId}">场地费用</label>
-                                                <input type="text" class="form-control" id="editUsageFee${facility.facilityId}" name="usageFee" value="${facility.usageFee}" required>
+                                                <label for="editUsageFee">场地费用</label>
+                                                <input type="text" class="form-control" id="editUsageFee" name="usageFee" value="${facility.usageFee}" required>
                                             </div>
+
                                             <button type="submit" class="btn btn-primary">确认修改</button>
                                         </form>
                                     </div>
@@ -231,14 +231,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../bootstrap/js/bootstrap.min.js"></script>
 <script>
-    $(document).ready(function () {
-        // 监听图片选择事件
-        $('#addFacilityPhoto').change(function () {
-            readURL(this, '#addPreviewImage');
-        });
+    var localImageFile;
+
+    $('#addFacilityPhoto').change(function () {
+        readURL(this, '#addPreviewImage');
+        localImageFile = this.files[0];
     });
 
-    // 用于预览图片
     function readURL(input, previewId) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -251,5 +250,8 @@
         }
     }
 </script>
+
+
+
 </body>
 </html>
