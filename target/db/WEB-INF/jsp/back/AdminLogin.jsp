@@ -20,18 +20,18 @@
             left: 50%;
             transform: translate(-50%, -50%);
             padding: 20px;
-            width: 400px; /* 固定宽度 */
-            height: 300px; /* 固定高度 */
+            width: 400px;
+            height: 300px;
         }
         .btn-login {
             display: flex;
             justify-content: center;
-            margin-top: 20px; /* 增加一些顶部间距 */
+            margin-top: 20px;
         }
         .box1 {
             background-color: rgb(255, 255, 255, 0.6);
             border-radius: 20px;
-            padding: 20px; /* 增加内边距 */
+            padding: 20px;
             font-size: 30px;
             font-weight: bold;
         }
@@ -55,7 +55,7 @@
                     <button type="submit" class="btn btn-primary">登录</button>
                 </div>
             </form>
-            <p>${error}</p> <!-- Display login error message -->
+            <p>${error}</p>
         </div>
     </div>
 </div>

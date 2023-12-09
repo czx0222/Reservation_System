@@ -5,9 +5,12 @@
 <mapper namespace="com.cn.db.mapper.UserMapper">
 
     <select id="getAllUsers" resultType="com.cn.db.entity.User">
-        SELECT user_id, login_name, full_name, birthday, phone, email FROM user_accounts;
+        SELECT userId, login_name, full_name, birthday, phone, email FROM user_accounts;
     </select>
     <delete id="deleteUserById" parameterType="int">
-        DELETE FROM user_accounts WHERE user_id = #{userId}
+        DELETE FROM user_accounts WHERE userId = #{userId}
     </delete>
+    <insert id="insertUser" parameterType="com.cn.db.entity.User">
+        INSERT INTO user_accounts (login_name, password) VALUES (#{login_name}, #{password})
+    </insert>
 </mapper>

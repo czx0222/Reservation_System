@@ -42,20 +42,35 @@
     .sidebar {
       background-color: #f8f9fa;
       padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-content: center;
       height: calc(100vh - 50px);
     }
+    .sidebar ul {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
 
     .sidebar li {
-      border: 1px solid #ccc;
+      width: 70%;
+      border: 2px solid #ccc;
       border-radius: 5px;
-      margin-bottom: 40px;
+      margin-bottom: 90px;
       list-style-type: none;
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 10px;
+    }
+
+    .sidebar a {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 30px;
+      color: white;
     }
     .content {
       flex-grow: 1;
@@ -96,10 +111,9 @@
   <div class="row">
     <div class="col-md-2 sidebar bg-dark text-light">
       <ul>
-        <li>个人中心</li>
-        <li><a href="/db/user/list">用户管理</a></li>
+        <li><a class="btn-link" href="/db/user/list">用户管理</a></li>
         <li><a class="btn-link" href="/db/facilities/list">场地管理</a></li>
-        <li>预约审核</li>
+        <li><a class="btn-link" href="/db/User/recordlist">预约审核</a></li>
         <li><a class="btn-link" href="/db/announcements/list">公告管理</a></li>
       </ul>
     </div>

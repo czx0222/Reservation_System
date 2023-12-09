@@ -23,6 +23,10 @@ public class UserAccountServiceImpl implements UserAccountService {
         return userAccountMapper.getUserInfoByLoginName(login_name);
     }
     @Override
+    public  int getUserIdByLoginName(String login_name){
+        return  userAccountMapper.getUserIdByLoginName(login_name);
+    }
+    @Override
     public boolean updateUserInfo(User updatedUserInfo) {
         try {
             int rowsAffected = userAccountMapper.updateUserInfo(updatedUserInfo);

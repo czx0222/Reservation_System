@@ -109,8 +109,8 @@
         <div class="col-md-2 sidebar bg-dark text-light">
             <ul>
                 <li><a class="btn-link" href="/db/User/userInfo">个人中心</a></li>
-                <li><a class="btn-link" href="#">场地预约</a></li>
-                <li><a class="btn-link" href="#">预约记录</a></li>
+                <li><a class="btn-link" href="/db/User/reservation">场地预约</a></li>
+                <li><a class="btn-link" href="/db/User/Record">预约记录</a></li>
                 <li><a class="btn-link" href="/db/User/announcements">公告查看</a></li>
             </ul>
         </div>
@@ -123,7 +123,7 @@
                 </tr>
                 <tr>
                     <td>用户ID</td>
-                    <td>${userInfo.user_id}</td>
+                    <td>${userInfo.userId}</td>
                 </tr>
                 <tr>
                     <td>用户名</td>
@@ -161,7 +161,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/db/User/updateUserInfo/${userInfo.user_id}" method="post">
+                <form action="/db/User/updateUserInfo/${userInfo.userId}" method="post">
                     <div class="form-group">
                         <label for="newFullName">姓名：</label>
                         <input type="text" id="newFullName" name="full_name" value="${userInfo.full_name}" required>
@@ -195,7 +195,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="/db/User/updatePassword/${userInfo.user_id}" method="post">
+                <form action="/db/User/updatePassword/${userInfo.userId}" method="post">
                     <div class="form-group">
                         <label for="currentPassword">当前密码：</label>
                         <input type="password" id="currentPassword" name="currentPassword" required class="form-control">

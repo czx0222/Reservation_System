@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cn.db.mapper.ReservationRecordMapper">
+    <insert id="insertReservationRecord" parameterType="com.cn.db.entity.ReservationRecord">
+        INSERT INTO reservation_records (userId, facilityId, startTime, endTime, facilityFee)
+        VALUES (#{userId}, #{facilityId}, #{startTime}, #{endTime}, #{facilityFee})
+    </insert>
+    <select id="getAllrecord" resultType="com.cn.db.entity.ReservationRecord">
+        SELECT * FROM reservation_records where userId = #{userId} order by endTime Desc;
+    </select>
+    <delete id="deleteRecord" parameterType="int">
+        DELETE FROM reservation_records WHERE reservationid = #{reservationid};
+    </delete>
+
+    <select id="adminGetAllrecord" resultType="com.cn.db.entity.ReservationRecord">
+        SELECT * FROM reservation_records order by endTime Desc;
+    </select>
+    <update id="updateAuditStatus">
+        UPDATE reservation_records
+        SET auditStatus = #{auditStatus}
+        WHERE reservationid = #{reservationId}
+    </update>
+
+
+</mapper>

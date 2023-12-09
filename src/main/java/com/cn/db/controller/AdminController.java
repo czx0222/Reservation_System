@@ -32,7 +32,7 @@ public class AdminController {
     public String login(String username, String password, Model model, HttpSession session) {
         System.out.println("Received username: " + username);
         System.out.println("Received password: " + password);
-        Admin admin = adminService.login(username, password);
+        Admin admin = adminService.login(username);
         if (admin != null) {
             session.setAttribute("admin", admin);
             return "redirect:/admin/dashboard"; // Redirect to the admin dashboard

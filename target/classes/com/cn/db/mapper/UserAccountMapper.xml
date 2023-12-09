@@ -6,10 +6,13 @@
         SELECT * FROM user_accounts WHERE login_name = #{login_name}
     </select>
     <select id="getUserInfoByLoginName" resultType="com.cn.db.entity.User">
-        SELECT user_id, login_name, full_name, birthday, phone, email FROM user_accounts WHERE login_name = #{login_name}
+        SELECT userId, login_name, full_name, birthday, phone, email FROM user_accounts WHERE login_name = #{login_name}
+    </select>
+    <select id="getUserIdByLoginName" resultType="int">
+        SELECT userId FROM user_accounts WHERE login_name = #{login_name}
     </select>
     <select id="getUserById" resultType="com.cn.db.entity.User">
-        SELECT * FROM user_accounts WHERE user_id = #{user_id}
+        SELECT * FROM user_accounts WHERE userId = #{userId}
     </select>
     <update id="updateUserInfo" parameterType="com.cn.db.entity.User">
         UPDATE user_accounts
@@ -17,11 +20,11 @@
             birthday = #{birthday},
             phone = #{phone},
             email = #{email}
-        WHERE user_id = #{user_id}
+        WHERE userId = #{userId}
     </update>
     <update id="updateUserPassword">
         UPDATE user_accounts
         SET password = #{password}
-        WHERE user_id = #{user_id}
+        WHERE userId = #{userId}
     </update>
 </mapper>

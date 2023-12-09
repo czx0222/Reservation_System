@@ -10,7 +10,7 @@
     </resultMap>
 
     <select id="findByUsername" resultMap="adminResultMap">
-        SELECT * FROM admin WHERE username = #{username}
+        SELECT * FROM admin WHERE username = #{username};
     </select>
 
 </mapper>

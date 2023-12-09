@@ -58,7 +58,7 @@
             <a href="/db/User/login" class="btn btn-primary">登录</a>
         </li>
         <li class="nav-item">
-            <a class="btn btn-primary" href="front/register.jsp">注册</a>
+            <a class="btn btn-primary" href="/db/User/register">注册</a>
         </li>
     </ul>
 </nav>

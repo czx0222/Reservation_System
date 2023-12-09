@@ -115,9 +115,9 @@
     <div class="col-md-2 sidebar bg-dark text-light">
       <ul>
         <li><a class="btn-link" href="/db/User/userInfo">个人中心</a></li>
-        <li><a class="btn-link" href="#">场地预约</a></li>
-        <li><a class="btn-link" href="#">预约记录</a></li>
-        <li><a class="btn-link" href="#">公告查看</a></li>
+        <li><a class="btn-link" href="/db/User/reservation">场地预约</a></li>
+        <li><a class="btn-link" href="/db/User/Record">预约记录</a></li>
+        <li><a class="btn-link" href="/db/User/announcements">公告查看</a></li>
       </ul>
     </div>
     <div class="col-md-10 content">
@@ -148,15 +148,6 @@
         </c:forEach>
       </ul>
     </div>
-    <nav aria-label="Page navigation">
-      <ul class="pagination">
-        <c:forEach var="i" begin="1" end="${totalPages}">
-          <li class="page-item ${currentPage eq i ? 'active' : ''}">
-            <a class="page-link" href="/db/User/announcements?page=${i}">${i}</a>
-          </li>
-        </c:forEach>
-      </ul>
-    </nav>
   </div>
 </div>
 

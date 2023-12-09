@@ -7,5 +7,6 @@ public interface UserAccountMapper {
     User getUserInfoByLoginName(String login_name);
     int updateUserInfo(User user);
     void updateUserPassword(User user);
-    User getUserById(int user_id);
+    User getUserById(int userId);
+    int getUserIdByLoginName(String login_name);
 }

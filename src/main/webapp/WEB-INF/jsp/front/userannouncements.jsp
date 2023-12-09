@@ -115,8 +115,8 @@
     <div class="col-md-2 sidebar bg-dark text-light">
       <ul>
         <li><a class="btn-link" href="/db/User/userInfo">个人中心</a></li>
-        <li><a class="btn-link" href="#">场地预约</a></li>
-        <li><a class="btn-link" href="#">预约记录</a></li>
+        <li><a class="btn-link" href="/db/User/reservation">场地预约</a></li>
+        <li><a class="btn-link" href="/db/User/Record">预约记录</a></li>
         <li><a class="btn-link" href="/db/User/announcements">公告查看</a></li>
       </ul>
     </div>

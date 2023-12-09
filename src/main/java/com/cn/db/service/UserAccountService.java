@@ -8,4 +8,5 @@ public interface UserAccountService {
     boolean updateUserInfo(User updatedUserInfo);
 
     boolean updatePassword(int userId, String currentPassword, String newPassword);
+    int getUserIdByLoginName(String login_name);
 }

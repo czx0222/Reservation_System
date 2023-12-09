@@ -27,7 +27,9 @@ public class LoginController {
 
     @PostMapping("/dashboard")
     public String authenticateUser(@RequestParam String login_name, @RequestParam String password, HttpSession session, Model model) {
+        int userId = userAccountService.getUserIdByLoginName(login_name);
         if (userAccountService.validateUser(login_name, password)) {
+            session.setAttribute("loggedInUserId", userId);
             session.setAttribute("loggedInUser", login_name);
             return "front/userDashboard";
         } else {
@@ -49,13 +51,12 @@ public class LoginController {
             model.addAttribute("userInfo", userInfo);
             return "front/userInfo";
         } else {
-            // Redirect to login page if not logged in
             return "redirect:/User/login";
         }
     }
-    @PostMapping("/updateUserInfo/{user_id}")
-    public String updateUserInfo(@PathVariable int user_id, @ModelAttribute User updatedUserInfo) {
-        updatedUserInfo.setUser_id(user_id);
+    @PostMapping("/updateUserInfo/{userId}")
+    public String updateUserInfo(@PathVariable int userId, @ModelAttribute User updatedUserInfo) {
+        updatedUserInfo.setUserId(userId);
         boolean success = userAccountService.updateUserInfo(updatedUserInfo);
         if (success) {
             return "redirect:/User/userInfo";
@@ -63,15 +64,15 @@ public class LoginController {
             return "errorPage";
         }
     }
-    @PostMapping("/updatePassword/{user_id}")
-    public String updatePassword(@PathVariable int user_id,
+    @PostMapping("/updatePassword/{userId}")
+    public String updatePassword(@PathVariable int userId,
                                  @RequestParam String currentPassword,
                                  @RequestParam String newPassword,
                                  @RequestParam String confirmNewPassword) {
         if (!newPassword.equals(confirmNewPassword)) {
             return "error";
         }
-        boolean success = userAccountService.updatePassword(user_id, currentPassword, newPassword);
+        boolean success = userAccountService.updatePassword(userId, currentPassword, newPassword);
         if (success) {
             return "redirect:/User/userInfo";
         } else {

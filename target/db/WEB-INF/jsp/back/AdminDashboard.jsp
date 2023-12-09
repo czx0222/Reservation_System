@@ -110,7 +110,7 @@
 
                 <li><a class="btn-link" href="/db/user/list">用户管理</a></li>
                 <li><a class="btn-link" href="/db/facilities/list">场地管理</a></li>
-                <li><a class="btn-link" href="#">预约审核</a></li>
+                <li><a class="btn-link" href="/db/User/recordlist">预约审核</a></li>
                 <li><a class="btn-link" href="/db/announcements/list">公告管理</a></li>
             </ul>
         </div>
